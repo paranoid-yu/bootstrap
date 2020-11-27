@@ -73,7 +73,7 @@ $(function () {
 
     assert.strictEqual($('#' + id).length, 1, 'has a unique id')
     assert.strictEqual($('.tooltip').attr('aria-describedby'), $trigger.attr('id'), 'tooltip id and aria-describedby on trigger match')
-    assert.ok($trigger[0].hasAttribute('aria-describedby'), 'trigger has aria-describedby')
+    assert.strictEqual($trigger[0].hasAttribute('aria-describedby'), true, 'trigger has aria-describedby')
   })
 
   QUnit.test('should remove aria-describedby from trigger on hide', function (assert) {
@@ -85,7 +85,7 @@ $(function () {
 
     $trigger
       .one('shown.bs.tooltip', function () {
-        assert.ok($trigger[0].hasAttribute('aria-describedby'), 'trigger has aria-describedby')
+        assert.strictEqual($trigger[0].hasAttribute('aria-describedby'), true, 'trigger has aria-describedby')
         $trigger.bootstrapTooltip('hide')
       })
       .one('hidden.bs.tooltip', function () {
@@ -118,8 +118,7 @@ $(function () {
 
     $tooltip
       .one('shown.bs.tooltip', function () {
-        assert.ok($('.tooltip')
-          .is('.fade.bs-tooltip-bottom.show'), 'has correct classes applied')
+        assert.ok($('.tooltip').is('.fade.bs-tooltip-bottom.show'), 'has correct classes applied')
 
         $tooltip.bootstrapTooltip('hide')
       })
@@ -203,7 +202,7 @@ $(function () {
 
     $tooltip
       .one('shown.bs.tooltip', function () {
-        assert.ok($('.tooltip').hasClass('some-class'), 'custom class is present')
+        assert.strictEqual($('.tooltip').hasClass('some-class'), true, 'custom class is present')
         $tooltip.bootstrapTooltip('hide')
       })
       .one('hidden.bs.tooltip', function () {
@@ -478,7 +477,7 @@ $(function () {
       })
       .on('inserted.bs.tooltip', function () {
         var $tooltip = $($(this).data('bs.tooltip').tip)
-        assert.ok($tooltip.hasClass('bs-tooltip-right'))
+        assert.strictEqual($tooltip.hasClass('bs-tooltip-right'), true)
         assert.strictEqual(typeof $tooltip.attr('style'), 'undefined')
         $styles.remove()
         done()

@@ -321,7 +321,7 @@ $(function () {
     $(template)
       .on('slide.bs.carousel', function (e) {
         assert.ok(e.relatedTarget, 'relatedTarget present')
-        assert.ok($(e.relatedTarget).hasClass('carousel-item'), 'relatedTarget has class "item"')
+        assert.strictEqual($(e.relatedTarget).hasClass('carousel-item'), true, 'relatedTarget has class "item"')
         done()
       })
       .bootstrapCarousel('next')
@@ -368,7 +368,7 @@ $(function () {
     $(template)
       .on('slid.bs.carousel', function (e) {
         assert.ok(e.relatedTarget, 'relatedTarget present')
-        assert.ok($(e.relatedTarget).hasClass('carousel-item'), 'relatedTarget has class "item"')
+        assert.strictEqual($(e.relatedTarget).hasClass('carousel-item'), true, 'relatedTarget has class "item"')
         done()
       })
       .bootstrapCarousel('next')
@@ -985,14 +985,14 @@ $(function () {
 
     var $firstItem = $('#firstItem')
     setTimeout(function () {
-      assert.ok($firstItem.hasClass('active'))
+      assert.strictEqual($firstItem.hasClass('active'), true)
       $html
         .bootstrapCarousel('dispose')
         .attr('style', 'visibility: hidden;')
         .bootstrapCarousel()
 
       setTimeout(function () {
-        assert.ok($firstItem.hasClass('active'))
+        assert.strictEqual($firstItem.hasClass('active'), true)
         done()
       }, 80)
     }, 80)
@@ -1025,13 +1025,13 @@ $(function () {
     var $firstItem = $('#firstItem')
 
     setTimeout(function () {
-      assert.ok($firstItem.hasClass('active'))
+      assert.strictEqual($firstItem.hasClass('active'), true)
       $carousel.bootstrapCarousel('dispose')
       $parent.attr('style', 'visibility: hidden;')
       $carousel.bootstrapCarousel()
 
       setTimeout(function () {
-        assert.ok($firstItem.hasClass('active'))
+        assert.strictEqual($firstItem.hasClass('active'), true)
         done()
       }, 80)
     }, 80)
@@ -1069,7 +1069,7 @@ $(function () {
 
     $carousel.one('slid.bs.carousel', function () {
       assert.ok(true, 'slid event fired')
-      assert.ok($item.hasClass('active'))
+      assert.strictEqual($item.hasClass('active'), true)
       assert.ok(spy.called)
       $styles.remove()
       delete document.documentElement.ontouchstart
@@ -1111,7 +1111,7 @@ $(function () {
 
     $carousel.one('slid.bs.carousel', function () {
       assert.ok(true, 'slid event fired')
-      assert.ok($item.hasClass('active'))
+      assert.strictEqual($item.hasClass('active'), true)
       assert.ok(spy.called)
       delete document.documentElement.ontouchstart
       restorePointerEvents()

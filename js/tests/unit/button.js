@@ -38,7 +38,7 @@ $(function () {
     var $btn = $('<button class="btn" data-toggle="button">mdo</button>')
     assert.strictEqual($btn.hasClass('active'), false, 'btn does not have active class')
     $btn.bootstrapButton('toggle')
-    assert.ok($btn.hasClass('active'), 'btn has class active')
+    assert.strictEqual($btn.hasClass('active'), true, 'btn has class active')
   })
 
   QUnit.test('should toggle active when btn children are clicked', function (assert) {
@@ -50,7 +50,7 @@ $(function () {
       .appendTo('#qunit-fixture')
     assert.strictEqual($btn.hasClass('active'), false, 'btn does not have active class')
     $inner.trigger('click')
-    assert.ok($btn.hasClass('active'), 'btn has class active')
+    assert.strictEqual($btn.hasClass('active'), true, 'btn has class active')
   })
 
   QUnit.test('should toggle aria-pressed', function (assert) {
@@ -107,7 +107,7 @@ $(function () {
     $btn.appendTo('#qunit-fixture')
     $(window).trigger($.Event('load'))
     setTimeout(function () {
-      assert.ok($btn.hasClass('active'), 'button with aria-pressed="true" has been given class active')
+      assert.strictEqual($btn.hasClass('active'), true, 'button with aria-pressed="true" has been given class active')
       done()
     }, 5)
   })
@@ -125,7 +125,7 @@ $(function () {
 
     $(window).trigger($.Event('load'))
     setTimeout(function () {
-      assert.ok($btn.hasClass('active'), 'checked checkbox button has been given class active')
+      assert.strictEqual($btn.hasClass('active'), true, 'checked checkbox button has been given class active')
       done()
     }, 5)
   })
@@ -224,23 +224,23 @@ $(function () {
     var $btn1 = $group.children().eq(0)
     var $btn2 = $group.children().eq(1)
 
-    assert.ok($btn1.hasClass('active'), 'btn1 has active class')
+    assert.strictEqual($btn1.hasClass('active'), true, 'btn1 has active class')
     assert.ok($btn1.find('input').prop('checked'), 'btn1 is checked')
     assert.strictEqual($btn2.hasClass('active'), false, 'btn2 does not have active class')
     assert.strictEqual($btn2.find('input').prop('checked'), false, 'btn2 is not checked')
     $btn2.find('input').trigger('click')
     assert.strictEqual($btn1.hasClass('active'), false, 'btn1 does not have active class')
     assert.strictEqual($btn1.find('input').prop('checked'), false, 'btn1 is not checked')
-    assert.ok($btn2.hasClass('active'), 'btn2 has active class')
+    assert.strictEqual($btn2.hasClass('active'), true, 'btn2 has active class')
     assert.ok($btn2.find('input').prop('checked'), 'btn2 is checked')
 
     $btn2.find('input').trigger('click') // Clicking an already checked radio should not un-check it
     assert.strictEqual($btn1.hasClass('active'), false, 'btn1 does not have active class')
     assert.strictEqual($btn1.find('input').prop('checked'), false, 'btn1 is not checked')
-    assert.ok($btn2.hasClass('active'), 'btn2 has active class')
+    assert.strictEqual($btn2.hasClass('active'), true, 'btn2 has active class')
     assert.ok($btn2.find('input').prop('checked'), 'btn2 is checked')
     $btn1.bootstrapButton('toggle')
-    assert.ok($btn1.hasClass('active'), 'btn1 has active class')
+    assert.strictEqual($btn1.hasClass('active'), true, 'btn1 has active class')
     assert.ok($btn1.find('input').prop('checked'), 'btn1 prop is checked')
     assert.ok($btn1.find('input')[0].checked, 'btn1 is checked with jquery')
     assert.strictEqual($btn2.hasClass('active'), false, 'btn2 does not have active class')
