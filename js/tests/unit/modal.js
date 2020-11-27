@@ -53,7 +53,7 @@ $(function () {
     assert.expect(2)
     var $el = $('<div id="modal-test"/>')
     var $modal = $el.bootstrapModal()
-    assert.ok($modal instanceof $, 'returns jquery collection')
+    assert.true($modal instanceof $, 'returns jquery collection')
     assert.strictEqual($modal[0], $el[0], 'collection contains element')
   })
 
@@ -984,7 +984,7 @@ $(function () {
     $modal.on('shown.bs.modal', function () {
       $modal.trigger('click')
       setTimeout(function () {
-        assert.ok($modal.hasClass('modal-static'), 'has modal-static class')
+        assert.true($modal.hasClass('modal-static'), 'has modal-static class')
         done()
       }, 0)
     })
@@ -1006,7 +1006,7 @@ $(function () {
     $modal.on('shown.bs.modal', function () {
       $modal.trigger('click')
       setTimeout(function () {
-        assert.notOk($modal.hasClass('modal-static'), 'should not have modal-static class')
+        assert.false($modal.hasClass('modal-static'), 'should not have modal-static class')
         done()
       }, 0)
     })

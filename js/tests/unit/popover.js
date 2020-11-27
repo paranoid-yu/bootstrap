@@ -41,7 +41,7 @@ $(function () {
     assert.expect(2)
     var $el = $('<div/>')
     var $popover = $el.bootstrapPopover()
-    assert.ok($popover instanceof $, 'returns jquery collection')
+    assert.true($popover instanceof $, 'returns jquery collection')
     assert.strictEqual($popover[0], $el[0], 'collection contains element')
   })
 
@@ -254,7 +254,7 @@ $(function () {
       })
       .one('shown.bs.popover', function () {
         assert.notStrictEqual($('.popover').length, 0, 'popover was inserted')
-        assert.ok($('.popover').hasClass('foobar'), 'custom class is present')
+        assert.true($('.popover').hasClass('foobar'), 'custom class is present')
         $popover.bootstrapPopover('hide')
       })
       .one('hidden.bs.popover', function () {

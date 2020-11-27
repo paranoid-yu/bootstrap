@@ -51,7 +51,7 @@ $(function () {
 
     var $el = $('<div/>')
     var $toast = $el.bootstrapToast()
-    assert.ok($toast instanceof $, 'returns jquery collection')
+    assert.true($toast instanceof $, 'returns jquery collection')
     assert.strictEqual($toast[0], $el[0], 'collection contains element')
   })
 

@@ -40,7 +40,7 @@ $(function () {
     assert.expect(2)
     var $el = $('<div/>')
     var $tab = $el.bootstrapTab()
-    assert.ok($tab instanceof $, 'returns jquery collection')
+    assert.true($tab instanceof $, 'returns jquery collection')
     assert.strictEqual($tab[0], $el[0], 'collection contains element')
   })
 
@@ -321,7 +321,7 @@ $(function () {
     var $tabs = $(tabsHTML).appendTo('#qunit-fixture')
 
     $tabs.find('li:last-child a').trigger('click')
-    assert.notOk($tabs.find('li:first-child a').hasClass('active'))
+    assert.false($tabs.find('li:first-child a').hasClass('active'))
     assert.ok($tabs.find('li:last-child a').hasClass('active'))
   })
 
@@ -340,9 +340,9 @@ $(function () {
     var $tabs = $(tabsHTML).appendTo('#qunit-fixture')
 
     $tabs.find('li:first-child a').trigger('click')
-    assert.ok($tabs.find('li:first-child a').hasClass('active'))
-    assert.notOk($tabs.find('li:last-child a').hasClass('active'))
-    assert.notOk($tabs.find('li:last-child .dropdown-menu a:first-child').hasClass('active'))
+    assert.true($tabs.find('li:first-child a').hasClass('active'))
+    assert.false($tabs.find('li:last-child a').hasClass('active'))
+    assert.false($tabs.find('li:last-child .dropdown-menu a:first-child').hasClass('active'))
   })
 
   QUnit.test('Nested tabs', function (assert) {

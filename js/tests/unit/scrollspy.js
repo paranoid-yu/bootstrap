@@ -40,7 +40,7 @@ $(function () {
     assert.expect(2)
     var $el = $('<div/>').appendTo('#qunit-fixture')
     var $scrollspy = $el.bootstrapScrollspy()
-    assert.ok($scrollspy instanceof $, 'returns jquery collection')
+    assert.true($scrollspy instanceof $, 'returns jquery collection')
     assert.strictEqual($scrollspy[0], $el[0], 'collection contains element')
   })
 
@@ -84,7 +84,7 @@ $(function () {
       })
 
     $scrollspy.one('scroll', function () {
-      assert.ok($section.hasClass('active'), '"active" class still on root node')
+      assert.true($section.hasClass('active'), '"active" class still on root node')
       done()
     })
 
@@ -131,7 +131,7 @@ $(function () {
       })
 
     $scrollspy.one('scroll', function () {
-      assert.ok($section.hasClass('active'), '"active" class still on root node')
+      assert.true($section.hasClass('active'), '"active" class still on root node')
       done()
     })
 
@@ -179,7 +179,7 @@ $(function () {
       })
 
     $scrollspy.one('scroll', function () {
-      assert.ok($section.hasClass('active'), '"active" class still on root node')
+      assert.true($section.hasClass('active'), '"active" class still on root node')
       done()
     })
 
@@ -229,7 +229,7 @@ $(function () {
     assert.ok($('.container').attr('id').length > 0, '`target` has an ID attribute')
 
     $scrollspy.one('scroll', function () {
-      assert.ok($section.hasClass('active'), '"active" class still on root node')
+      assert.true($section.hasClass('active'), '"active" class still on root node')
       done()
     })
 
@@ -265,7 +265,7 @@ $(function () {
 
     $scrollspy.one('scroll', function () {
       assert.strictEqual($section.find('#one-link').hasClass('active'), false, '"active" class removed from first section')
-      assert.ok($section.find('#two-link').hasClass('active'), '"active" class on middle section')
+      assert.true($section.find('#two-link').hasClass('active'), '"active" class on middle section')
       assert.strictEqual($section.find('#three-link').hasClass('active'), false, '"active" class not on last section')
       done()
     })
@@ -303,7 +303,7 @@ $(function () {
       var paddingTop = 5
       var scrollHeight = Math.ceil($content.scrollTop() + $(target).position().top) + paddingTop
       $content.one('scroll', function () {
-        assert.ok($(element).hasClass('active'), 'target:' + target + ', element' + element)
+        assert.true($(element).hasClass('active'), 'target:' + target + ', element' + element)
         deferred.resolve()
       })
       $content.scrollTop(scrollHeight)
@@ -349,7 +349,7 @@ $(function () {
       var paddingTop = 5
       var scrollHeight = Math.ceil($content.scrollTop() + $(target).position().top) + paddingTop
       $content.one('scroll', function () {
-        assert.ok($(element).hasClass('active'), 'target:' + target + ', element' + element)
+        assert.true($(element).hasClass('active'), 'target:' + target + ', element' + element)
         deferred.resolve()
       })
       $content.scrollTop(scrollHeight)
@@ -395,7 +395,7 @@ $(function () {
       var paddingTop = 5
       var scrollHeight = Math.ceil($content.scrollTop() + $(target).position().top) + paddingTop
       $content.one('scroll', function () {
-        assert.ok($(element).hasClass('active'), 'target:' + target + ', element' + element)
+        assert.true($(element).hasClass('active'), 'target:' + target + ', element' + element)
         deferred.resolve()
       })
       $content.scrollTop(scrollHeight)
@@ -446,8 +446,8 @@ $(function () {
       }
 
       $content.one('scroll', function () {
-        assert.ok($('#a-1').hasClass('active'), 'nav item for outer element has "active" class')
-        assert.ok($('#a-2').hasClass('active'), 'nav item for inner element has "active" class')
+        assert.true($('#a-1').hasClass('active'), 'nav item for outer element has "active" class')
+        assert.true($('#a-2').hasClass('active'), 'nav item for inner element has "active" class')
         testActiveElements()
       })
 
@@ -491,8 +491,8 @@ $(function () {
       }
 
       $content.one('scroll', function () {
-        assert.ok($('#a-1').hasClass('active'), 'nav item for outer element has "active" class')
-        assert.ok($('#a-2').hasClass('active'), 'nav item for inner element has "active" class')
+        assert.true($('#a-1').hasClass('active'), 'nav item for outer element has "active" class')
+        assert.true($('#a-2').hasClass('active'), 'nav item for inner element has "active" class')
         testActiveElements()
       })
 
@@ -536,8 +536,8 @@ $(function () {
       }
 
       $content.one('scroll', function () {
-        assert.ok($('#a-1').hasClass('active'), 'nav item for outer element has "active" class')
-        assert.ok($('#a-2').hasClass('active'), 'nav item for inner element has "active" class')
+        assert.true($('#a-1').hasClass('active'), 'nav item for outer element has "active" class')
+        assert.true($('#a-2').hasClass('active'), 'nav item for inner element has "active" class')
         testActiveElements()
       })
 
@@ -581,8 +581,8 @@ $(function () {
       }
 
       $content.one('scroll', function () {
-        assert.ok($('#a-1').hasClass('active'), 'nav item for outer element has "active" class')
-        assert.ok($('#a-2').hasClass('active'), 'nav item for inner element has "active" class')
+        assert.true($('#a-1').hasClass('active'), 'nav item for outer element has "active" class')
+        assert.true($('#a-2').hasClass('active'), 'nav item for inner element has "active" class')
         testActiveElements()
       })
 
@@ -712,7 +712,7 @@ $(function () {
       var paddingTop = 5
       var scrollHeight = Math.ceil($content.scrollTop() + $(target).position().top) + paddingTop
       $content.one('scroll', function () {
-        assert.ok($(element).hasClass('active'), 'target:' + target + ', element: ' + element)
+        assert.true($(element).hasClass('active'), 'target:' + target + ', element: ' + element)
         deferred.resolve()
       })
       $content.scrollTop(scrollHeight)

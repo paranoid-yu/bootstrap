@@ -74,7 +74,7 @@ $(function () {
     assert.expect(2)
     var $el = $('<div/>')
     var $carousel = $el.bootstrapCarousel()
-    assert.ok($carousel instanceof $, 'returns jquery collection')
+    assert.true($carousel instanceof $, 'returns jquery collection')
     assert.strictEqual($carousel[0], $el[0], 'collection contains element')
   })
 
